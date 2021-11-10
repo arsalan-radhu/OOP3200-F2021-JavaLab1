@@ -30,33 +30,36 @@ public class Main
 
 
         //Nested for loops for taking user input
-        for (int i = 0; i < PLAYERS; i++) //Player counter
+        for (int playerCounter = 0; playerCounter < PLAYERS; playerCounter++) //Player counter
         {
-            System.out.printf("Please enter the scores for %s: \n", playerNames[i]);
+            System.out.printf("Please enter the scores for %s: \n", playerNames[playerCounter]);
 
-            for (int j = 0; j < GAMES; j++) //Game counters
+            for (int gameCounter = 0; gameCounter < GAMES; gameCounter++) //Game counters
             {
-                do { //While the input is invalid, keep asking for game scores
+                do {
+                    //While the input is invalid, keep asking for game scores
                     try
                     {
-                        System.out.printf("Please enter the score for game %d: ", j + 1);
+                        System.out.printf("Please enter the score for game %d: ", gameCounter + 1);
                         tempScore = keyboard.nextInt();
 
-                        if (tempScore < MIN_SCORE || tempScore > MAX_SCORE) //if the user input is higher or lower than the acceptable inputs
+                        //if the user input is higher or lower than the acceptable inputs
+                        if (tempScore < MIN_SCORE || tempScore > MAX_SCORE)
                         {
-                            System.out.print("\nYou must enter a valid float greater than 0.00 or lower than 300.00\n");
+                            System.out.print("\nYou must enter a valid score between"+MIN_SCORE +" and " +MAX_SCORE+ "\n");
                             keyboard.nextLine();
                             valid = true;
                         }
                         else //if the input is valid
                         {
                             valid = false;
-                            playerGames[i][j] = tempScore;
+                            playerGames[playerCounter][gameCounter] = tempScore;
                         }
                     }
-                    catch (InputMismatchException inputMismatchException) //if the input is non-numeric
+                    //If input is non-numeric
+                    catch (InputMismatchException inputMismatchException)
                     {
-                        System.out.print("\nYou must enter a valid integer greater than 0.00 or lower than 300.00\n");
+                        System.out.print("\nYou must enter a valid score between"+MIN_SCORE +" and " +MAX_SCORE+ "\n");
                         keyboard.nextLine();
                         valid = true;
                     }
@@ -65,18 +68,18 @@ public class Main
         }
 
         //PRINT THE ARRAY
-        for (int i = 0; i < PLAYERS; i++) //Player counter
+        for (int playerCounter = 0; playerCounter < PLAYERS; playerCounter++)
         {
 
-            System.out.printf("Printing the scores for %s: \n", playerNames[i]);
+            System.out.printf("Printing the scores for %s: \n", playerNames[playerCounter]);
             playerAverageScore = 0;
 
-            for (int j = 0; j < GAMES; j++) //Game counters
+            for (int GameCounter = 0; GameCounter < GAMES; GameCounter++)
             {
-                System.out.printf("Game #   %d: ", j + 1);
-                System.out.println(playerGames[i][j]);
+                System.out.printf("Game #   %d: ", GameCounter + 1);
+                System.out.println(playerGames[playerCounter][GameCounter]);
                 //take the number (as a string) and cast it as an integer, then store it in playerAvg
-                playerAverageScore += playerGames[i][j];
+                playerAverageScore += playerGames[playerCounter][GameCounter];
             }
             System.out.printf("Average : %.1f\n", (playerAverageScore / GAMES));
         }
