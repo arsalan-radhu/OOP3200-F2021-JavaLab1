@@ -1,5 +1,5 @@
 /*
- * Author: Arsalan Arif Radhu
+ * Author: Arsalan Arif Radhu (100813965)
  * Date: 10 November
  * Title: Lab 1 for OOP3200 Java
  */
@@ -29,10 +29,10 @@ public class Main
         int[][] playerGames = new int [NUMBER_OF_PLAYERS][NUMBER_OF_GAMES];
 
 
-        //Nested for loops for taking user input
-        for (int playerCounter = 0; playerCounter < NUMBER_OF_PLAYERS; playerCounter++) //Player counter
+        //Taking user input
+        for (int playerCounter = 0; playerCounter < NUMBER_OF_PLAYERS; playerCounter++)
         {
-            for (int gameCounter = 0; gameCounter < NUMBER_OF_GAMES; gameCounter++) //Game counters
+            for (int gameCounter = 0; gameCounter < NUMBER_OF_GAMES; gameCounter++)
             {
                 do {
                     //While the input is invalid, keep asking for game scores
@@ -42,7 +42,7 @@ public class Main
                         System.out.printf("GAME #%d: ", gameCounter + 1);
                         tempScore = keyboard.nextInt();
 
-                        //if the user input is greater than or less than MAX_SCORE and MIN_SCORE
+                        //if the user input is greater than MAX_SCORE or less MIN_SCORE
                         if (tempScore < MIN_SCORE || tempScore > MAX_SCORE)
                         {
                             System.out.print("\nYou must enter a valid score between"+MIN_SCORE +" and " +MAX_SCORE+ "\n");
