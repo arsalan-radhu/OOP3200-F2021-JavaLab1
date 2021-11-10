@@ -32,7 +32,7 @@ public class Main
         //Nested for loops for taking user input
         for (int playerCounter = 0; playerCounter < PLAYERS; playerCounter++) //Player counter
         {
-            System.out.printf("Please enter the scores for %s: \n", playerNames[playerCounter]);
+            //System.out.printf("Please enter %s's score for ", playerNames[playerCounter]);
 
             for (int gameCounter = 0; gameCounter < GAMES; gameCounter++) //Game counters
             {
@@ -40,7 +40,8 @@ public class Main
                     //While the input is invalid, keep asking for game scores
                     try
                     {
-                        System.out.printf("Please enter the score for game %d: ", gameCounter + 1);
+                        System.out.printf("Please enter %s's score for ", playerNames[playerCounter]);
+                        System.out.printf("GAME #%d: ", gameCounter + 1);
                         tempScore = keyboard.nextInt();
 
                         //if the user input is higher or lower than the acceptable inputs
@@ -71,12 +72,12 @@ public class Main
         for (int playerCounter = 0; playerCounter < PLAYERS; playerCounter++)
         {
 
-            System.out.printf("Printing the scores for %s: \n", playerNames[playerCounter]);
+            System.out.printf("Score details for %s: \n", playerNames[playerCounter]);
             playerAverageScore = 0;
 
             for (int GameCounter = 0; GameCounter < GAMES; GameCounter++)
             {
-                System.out.printf("Game #   %d: ", GameCounter + 1);
+                System.out.printf("Game # %d: ", GameCounter + 1);
                 System.out.println(playerGames[playerCounter][GameCounter]);
                 //take the number (as a string) and cast it as an integer, then store it in playerAvg
                 playerAverageScore += playerGames[playerCounter][GameCounter];
