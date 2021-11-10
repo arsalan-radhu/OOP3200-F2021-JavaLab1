@@ -20,12 +20,13 @@ public class Main
         final int MAX_SCORE = 300;
 
         //Declarations
-        String[] playerNames = {"Nick", "Kaif", "Tom"};
+        String[] playerNames = {"Arsalan", "Affan", "Tom"};
         Scanner keyboard = new Scanner(System.in);
-        boolean dirtyFlag = true;
+        boolean valid = true;
         int tempScore = 0;
-        double playerAvg = 0;
-        int[][] playerGames = new int [PLAYERS][GAMES]; //2Dimensional Array
+        double playerAverageScore = 0;
+        //declaring a 2D Array
+        int[][] playerGames = new int [PLAYERS][GAMES];
 
 
         //Nested for loops for taking user input
@@ -45,11 +46,11 @@ public class Main
                         {
                             System.out.print("\nYou must enter a valid float greater than 0.00 or lower than 300.00\n");
                             keyboard.nextLine();
-                            dirtyFlag = true;
+                            valid = true;
                         }
                         else //if the input is valid
                         {
-                            dirtyFlag = false;
+                            valid = false;
                             playerGames[i][j] = tempScore;
                         }
                     }
@@ -57,9 +58,9 @@ public class Main
                     {
                         System.out.print("\nYou must enter a valid integer greater than 0.00 or lower than 300.00\n");
                         keyboard.nextLine();
-                        dirtyFlag = true;
+                        valid = true;
                     }
-                } while (dirtyFlag); //using a boolean
+                } while (valid); //using a boolean
             }
         }
 
@@ -68,16 +69,16 @@ public class Main
         {
 
             System.out.printf("Printing the scores for %s: \n", playerNames[i]);
-            playerAvg = 0;
+            playerAverageScore = 0;
 
             for (int j = 0; j < GAMES; j++) //Game counters
             {
                 System.out.printf("Game #   %d: ", j + 1);
                 System.out.println(playerGames[i][j]);
                 //take the number (as a string) and cast it as an integer, then store it in playerAvg
-                playerAvg += playerGames[i][j];
+                playerAverageScore += playerGames[i][j];
             }
-            System.out.printf("Average : %.1f\n", (playerAvg / GAMES));
+            System.out.printf("Average : %.1f\n", (playerAverageScore / GAMES));
         }
 
     }
